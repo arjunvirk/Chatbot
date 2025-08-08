@@ -114,7 +114,7 @@
             }
 
             .chat-input-container {
-                margin-bottom: 100px;
+                margin-bottom: 30px;
             }
         }
     </style>
@@ -135,7 +135,6 @@
 
         function ChatInput({ chatMessages, setChatMessages }) {
             const [inputText, setInputText] = React.useState("");
-            const [loading, setLoading] = React.useState(false);
 
             function saveInputText(event) {
                 // console.log(event.target.value);
@@ -154,7 +153,6 @@
 
             async function sendMessage() {
                 if (!inputText.trim()) return;
-                setLoading(true)
                 setInputText("");
 
                 const newChatMessages = [
@@ -202,9 +200,6 @@
                             id: crypto.randomUUID()
                         }
                     ])
-                }
-                finally {
-                    setLoading(false);
                 }
             }
 
